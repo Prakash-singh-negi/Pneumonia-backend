@@ -38,3 +38,5 @@ def predict():
     result = "Pneumonia" if prediction > 0.5 else "Normal"
 
     return jsonify({'prediction': result})
+
+

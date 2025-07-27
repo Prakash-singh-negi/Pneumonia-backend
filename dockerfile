@@ -1,31 +1,18 @@
 # Use official Python 3.10 image
-FROM python:3.10-slim
-
-# Set environment variables (prevents Python from writing .pyc files and enables buffering)
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+FROM python:3.10
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (optional: for Pillow/OpenCV etc., depending on your model)
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy all files
+# Copy everything to container
 COPY . .
 
-# Install Python dependencies
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose Flask default port
+# Expose the port Flask runs on
 EXPOSE 5000
 
-# Run the application
+# Run the app
 CMD ["python", "app.py"]
