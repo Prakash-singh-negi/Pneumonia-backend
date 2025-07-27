@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: pneumonia-backend
-    env: docker
-    plan: free
-    repo: https://github.com/Prakash-singh-negi/Pneumonia-backend
-    branch: main
