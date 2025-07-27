@@ -4,15 +4,15 @@ FROM python:3.10
 # Set working directory
 WORKDIR /app
 
-# Copy everything to container
+# Copy all files into the container
 COPY . .
 
 # Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# Expose the port Flask runs on
+# Expose the port
 EXPOSE 5000
 
-# Run the app
+# Run Flask app
 CMD ["python", "app.py"]
