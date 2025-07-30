@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-model = load_model("Pneumonia_binary_classification.h5")
+model = load_model("Pneumonia_binary_classification.keras")
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
